@@ -7,8 +7,8 @@ export const metadata = {
   description: 'Discover upcoming events at Marianopolis College',
 }
 
-export default function EventsPage() {
-  const events = getAllEvents()
+export default async function EventsPage() {
+  const events = await getAllEvents()
 
   return (
     <div className="page-container">

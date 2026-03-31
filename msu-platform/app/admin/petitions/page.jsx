@@ -9,8 +9,8 @@ export const metadata = {
   title: 'Manage Petitions - MSU Admin',
 }
 
-export default function AdminPetitionsPage() {
-  const petitions = getAllPetitions()
+export default async function AdminPetitionsPage() {
+  const petitions = await getAllPetitions()
 
   return (
     <AdminLayout>
@@ -96,17 +96,17 @@ export default function AdminPetitionsPage() {
                   <td className="px-6 py-4">
                     <div className="text-sm">
                       <span className="font-medium text-gray-900">{petition.supporters}</span>
-                      <span className="text-gray-500"> / {petition.targetSupporters}</span>
+                      <span className="text-gray-500"> / {petition.target_supporters}</span>
                     </div>
                     <div className="w-20 bg-gray-200 rounded-full h-1.5 mt-1">
                       <div
                         className="bg-msu-blue h-1.5 rounded-full"
-                        style={{ width: `${Math.min((petition.supporters / petition.targetSupporters) * 100, 100)}%` }}
+                        style={{ width: `${Math.min((petition.supporters / petition.target_supporters) * 100, 100)}%` }}
                       />
                     </div>
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-600">
-                    {formatDate(petition.createdAt)}
+                    {formatDate(petition.created_at)}
                   </td>
                   <td className="px-6 py-4">
                     <span className={getStatusColor(petition.status)}>

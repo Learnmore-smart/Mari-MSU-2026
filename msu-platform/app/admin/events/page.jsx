@@ -9,8 +9,8 @@ export const metadata = {
   title: 'Manage Events - MSU Admin',
 }
 
-export default function AdminEventsPage() {
-  const events = getAllEvents()
+export default async function AdminEventsPage() {
+  const events = await getAllEvents()
 
   return (
     <AdminLayout>
@@ -83,7 +83,7 @@ export default function AdminEventsPage() {
                     </span>
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-600">
-                    {event.attendees}/{event.maxAttendees}
+                    {event.attendees}/{event.max_attendees}
                   </td>
                   <td className="px-6 py-4">
                     <span className={getStatusColor(event.status)}>

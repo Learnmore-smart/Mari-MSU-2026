@@ -6,14 +6,14 @@ import { Calendar, Clock, MapPin, Users, ArrowLeft, Share2 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 export async function generateStaticParams() {
-  const events = getAllEvents()
+  const events = await getAllEvents()
   return events.map((event) => ({
     slug: event.slug,
   }))
 }
 
 export async function generateMetadata({ params }) {
-  const event = getEventBySlug(params.slug)
+  const event = await getEventBySlug(params.slug)
   if (!event) return { title: 'Event Not Found' }
   
   return {
@@ -22,14 +22,14 @@ export async function generateMetadata({ params }) {
   }
 }
 
-export default function EventDetailPage({ params }) {
-  const event = getEventBySlug(params.slug)
+export default async function EventDetailPage({ params }) {
+  const event = await getEventBySlug(params.slug)
 
   if (!event) {
     notFound()
   }
 
-  const spotsLeft = event.maxAttendees - event.attendees
+  const spotsLeft = event.max_attendees - event.attendees
   const isFull = spotsLeft <= 0
 
   return (
@@ -125,13 +125,13 @@ export default function EventDetailPage({ params }) {
               <div className="flex justify-between text-sm mb-2">
                 <span className="text-gray-500">Attendance</span>
                 <span className="font-medium">
-                  {event.attendees} / {event.maxAttendees}
+                  {event.attendees} / {event.max_attendees}
                 </span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
                 <div
                   className={`h-2 rounded-full ${isFull ? 'bg-red-500' : 'bg-msu-blue'}`}
-                  style={{ width: `${(event.attendees / event.maxAttendees) * 100}%` }}
+                  style={{ width: `${(event.attendees / event.max_attendees) * 100}%` }}
                 />
               </div>
               {!isFull && (

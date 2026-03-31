@@ -8,8 +8,8 @@ export const metadata = {
   description: 'Learn about our sponsors and partnership opportunities',
 }
 
-export default function SponsorsPage() {
-  const sponsors = getAllSponsors()
+export default async function SponsorsPage() {
+  const sponsors = await getAllSponsors()
   
   const platinumSponsors = sponsors.filter(s => s.tier === 'Platinum')
   const goldSponsors = sponsors.filter(s => s.tier === 'Gold')

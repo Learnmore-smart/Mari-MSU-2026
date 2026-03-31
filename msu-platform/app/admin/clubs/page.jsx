@@ -7,8 +7,8 @@ export const metadata = {
   title: 'Manage Clubs - MSU Admin',
 }
 
-export default function AdminClubsPage() {
-  const clubs = getAllClubs()
+export default async function AdminClubsPage() {
+  const clubs = await getAllClubs()
 
   return (
     <AdminLayout>

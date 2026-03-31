@@ -9,8 +9,8 @@ export const metadata = {
   description: 'View and support student petitions at Marianopolis College',
 }
 
-export default function PetitionsPage() {
-  const petitions = getAllPetitions()
+export default async function PetitionsPage() {
+  const petitions = await getAllPetitions()
   
   const openCount = petitions.filter(p => p.status === 'Open').length
   const reviewCount = petitions.filter(p => p.status === 'Under Review').length

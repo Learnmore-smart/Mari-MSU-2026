@@ -3,7 +3,7 @@ import { formatDate, getStatusColor } from '@/lib/utils'
 import { ArrowUp, MessageCircle } from 'lucide-react'
 
 export default function PetitionCard({ petition }) {
-  const supportPercentage = Math.round((petition.supporters / petition.targetSupporters) * 100)
+  const supportPercentage = Math.round((petition.supporters / petition.target_supporters) * 100)
 
   return (
     <Link href={`/petitions/${petition.slug}`}>
@@ -36,7 +36,7 @@ export default function PetitionCard({ petition }) {
         
         <div className="flex items-center justify-between text-sm text-gray-500">
           <span>by {petition.author}</span>
-          <span>{formatDate(petition.createdAt)}</span>
+          <span>{formatDate(petition.created_at)}</span>
         </div>
         
         <div className="flex items-center gap-4 mt-3 pt-3 border-t border-gray-100">
@@ -46,7 +46,7 @@ export default function PetitionCard({ petition }) {
           </div>
           <div className="flex items-center gap-1 text-gray-500">
             <MessageCircle className="w-4 h-4" />
-            <span className="text-sm">{petition.comments?.length || 0}</span>
+            <span className="text-sm">0</span>
           </div>
         </div>
       </div>

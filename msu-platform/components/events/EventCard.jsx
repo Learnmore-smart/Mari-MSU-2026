@@ -31,7 +31,7 @@ export default function EventCard({ event }) {
           <div className="mt-3 flex items-center justify-between">
             <span className="text-xs text-gray-500">{event.location}</span>
             <span className="text-xs text-gray-500">
-              {event.attendees}/{event.maxAttendees} attending
+              {event.attendees}/{event.max_attendees} attending
             </span>
           </div>
         </div>

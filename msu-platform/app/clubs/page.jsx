@@ -7,8 +7,8 @@ export const metadata = {
   description: 'Discover and join student clubs at Marianopolis College',
 }
 
-export default function ClubsPage() {
-  const clubs = getAllClubs()
+export default async function ClubsPage() {
+  const clubs = await getAllClubs()
   
   const categories = [...new Set(clubs.map(c => c.category))]
 
