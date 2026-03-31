@@ -6,6 +6,7 @@ export function Button({
   size = 'md', 
   className, 
   disabled,
+  isLoading,
   ...props 
 }) {
   const variants = {
@@ -33,10 +34,17 @@ export function Button({
         sizes[size],
         className
       )}
-      disabled={disabled}
+      disabled={disabled || isLoading}
       {...props}
     >
-      {children}
+      {isLoading ? (
+        <div className="flex items-center">
+          <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2"></div>
+          {children}
+        </div>
+      ) : (
+        children
+      )}
     </button>
   )
 }

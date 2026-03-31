@@ -9,8 +9,8 @@ export const metadata = {
   title: 'Manage Sponsors - MSU Admin',
 }
 
-export default function AdminSponsorsPage() {
-  const sponsors = getAllSponsors()
+export default async function AdminSponsorsPage() {
+  const sponsors = await getAllSponsors()
 
   const totalSponsorship = sponsors.reduce((sum, s) => sum + s.contribution, 0)
 

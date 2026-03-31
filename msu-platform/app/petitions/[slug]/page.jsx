@@ -1,20 +1,20 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { getPetitionBySlug, getAllPetitions } from '@/lib/data'
+import { getPetitionBySlug, getAllPetitions, getCommentsByPetitionId } from '@/lib/data'
 import { formatDate, getStatusColor } from '@/lib/utils'
 import { ArrowLeft, ArrowUp, ArrowDown, Share2, Flag } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import CommentSection from '@/components/petitions/CommentSection'
 
 export async function generateStaticParams() {
-  const petitions = getAllPetitions()
+  const petitions = await getAllPetitions()
   return petitions.map((petition) => ({
     slug: petition.slug,
   }))
 }
 
 export async function generateMetadata({ params }) {
-  const petition = getPetitionBySlug(params.slug)
+  const petition = await getPetitionBySlug(params.slug)
   if (!petition) return { title: 'Petition Not Found' }
   
   return {
@@ -23,14 +23,15 @@ export async function generateMetadata({ params }) {
   }
 }
 
-export default function PetitionDetailPage({ params }) {
-  const petition = getPetitionBySlug(params.slug)
+export default async function PetitionDetailPage({ params }) {
+  const petition = await getPetitionBySlug(params.slug)
 
   if (!petition) {
     notFound()
   }
 
-  const supportPercentage = Math.round((petition.supporters / petition.targetSupporters) * 100)
+  const comments = await getCommentsByPetitionId(petition.id)
+  const supportPercentage = Math.round((petition.supporters / petition.target_supporters) * 100)
 
   return (
     <div className="page-container">
@@ -61,7 +62,7 @@ export default function PetitionDetailPage({ params }) {
             <div className="flex items-center gap-4 text-sm text-gray-500 mb-6">
               <span>Started by <strong className="text-gray-900">{petition.author}</strong></span>
               <span>•</span>
-              <span>{formatDate(petition.createdAt)}</span>
+              <span>{formatDate(petition.created_at)}</span>
             </div>
 
             <div className="flex items-center gap-4">
@@ -76,19 +77,19 @@ export default function PetitionDetailPage({ params }) {
             </div>
           </div>
 
-          <CommentSection comments={petition.comments} />
+          <CommentSection comments={comments} petitionId={petition.id} />
         </div>
 
         <div className="lg:col-span-1">
           <div className="card p-6 sticky top-24">
             <div className="text-center mb-6">
-              <div className="text-4xl font-bold text-msu-blue mb-1">
-                {petition.supporters}
+                <div className="text-4xl font-bold text-msu-blue mb-1">
+                  {petition.supporters}
+                </div>
+                <div className="text-sm text-gray-500">
+                  of {petition.target_supporters} supporters needed
+                </div>
               </div>
-              <div className="text-sm text-gray-500">
-                of {petition.targetSupporters} supporters needed
-              </div>
-            </div>
 
             <div className="mb-6">
               <div className="w-full bg-gray-200 rounded-full h-3">
@@ -123,11 +124,11 @@ export default function PetitionDetailPage({ params }) {
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-gray-500">Created</span>
-                <span className="font-medium">{formatDate(petition.createdAt)}</span>
+                <span className="font-medium">{formatDate(petition.created_at)}</span>
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-gray-500">Comments</span>
-                <span className="font-medium">{petition.comments?.length || 0}</span>
+                <span className="font-medium">{comments.length}</span>
               </div>
             </div>
           </div>

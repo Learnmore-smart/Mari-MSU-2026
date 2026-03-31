@@ -4,10 +4,10 @@ import EventCard from '@/components/events/EventCard'
 import PetitionCard from '@/components/petitions/PetitionCard'
 import { getFeaturedEvents, getFeaturedPetitions, getStats } from '@/lib/data'
 
-export default function HomePage() {
-  const stats = getStats()
-  const featuredEvents = getFeaturedEvents()
-  const featuredPetitions = getFeaturedPetitions()
+export default async function HomePage() {
+  const stats = await getStats()
+  const featuredEvents = await getFeaturedEvents()
+  const featuredPetitions = await getFeaturedPetitions()
 
   return (
     <div>

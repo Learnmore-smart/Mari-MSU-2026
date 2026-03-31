@@ -17,11 +17,13 @@ export const metadata = {
   title: 'Admin Dashboard - MSU Platform',
 }
 
-export default function AdminDashboard() {
-  const stats = getAdminStats()
-  const recentActivity = getRecentActivity()
-  const recentEvents = getAllEvents().slice(0, 3)
-  const recentPetitions = getAllPetitions().slice(0, 3)
+export default async function AdminDashboard() {
+  const stats = await getAdminStats()
+  const recentActivity = await getRecentActivity()
+  const allEvents = await getAllEvents()
+  const allPetitions = await getAllPetitions()
+  const recentEvents = allEvents.slice(0, 3)
+  const recentPetitions = allPetitions.slice(0, 3)
 
   return (
     <AdminLayout>

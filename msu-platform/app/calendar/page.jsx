@@ -15,8 +15,8 @@ export const metadata = {
   description: 'View all upcoming events in calendar format',
 }
 
-export default function CalendarPage() {
-  const events = getEventsForCalendar()
+export default async function CalendarPage() {
+  const events = await getEventsForCalendar()
   
   const currentDate = new Date()
   const currentMonth = currentDate.getMonth()

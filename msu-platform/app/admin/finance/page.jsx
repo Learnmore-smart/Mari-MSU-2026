@@ -9,11 +9,11 @@ export const metadata = {
   title: 'Finance - MSU Admin',
 }
 
-export default function AdminFinancePage() {
-  const stats = getAdminStats()
-  const financeRecords = getAllFinanceRecords()
-  const reimbursements = getAllReimbursements()
-  const budgetRequests = getAllBudgetRequests()
+export default async function AdminFinancePage() {
+  const stats = await getAdminStats()
+  const financeRecords = await getAllFinanceRecords()
+  const reimbursements = await getAllReimbursements()
+  const budgetRequests = await getAllBudgetRequests()
 
   return (
     <AdminLayout>
