@@ -221,15 +221,19 @@ export async function createComment(commentData) {
     id: uuidv4(),
     ...commentData
   }
-  if (!demoData.comments) {
-    demoData.comments = []
+  const petition = demoData.petitions.find(p => p.id === commentData.petitionId)
+  if (petition) {
+    if (!petition.comments) {
+      petition.comments = []
+    }
+    petition.comments.push(newComment)
   }
-  demoData.comments.push(newComment)
   return newComment
 }
 
 export async function getCommentsByPetitionId(petitionId) {
-  return (demoData.comments || []).filter(c => c.petition_id === petitionId)
+  const petition = demoData.petitions.find(p => p.id === petitionId)
+  return petition ? petition.comments : []
 }
 
 export async function createClub(clubData) {
