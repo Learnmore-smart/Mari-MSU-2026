@@ -1,303 +1,376 @@
-import { v4 as uuidv4 } from 'uuid'
-import * as demoData from './demo-data'
+import { db } from './firebase-admin';
+import { v4 as uuidv4 } from 'uuid';
 
 export async function getStats() {
+  const [eventsSnap, petitionsSnap, clubsSnap] = await Promise.all([
+    db.collection('events').count().get(),
+    db.collection('petitions').count().get(),
+    db.collection('clubs').count().get(),
+  ]);
+
   return {
-    events: demoData.events.length,
-    petitions: demoData.petitions.length,
-    clubs: demoData.clubs.length,
+    events: eventsSnap.data().count,
+    petitions: petitionsSnap.data().count,
+    clubs: clubsSnap.data().count,
     members: 2450,
-  }
+  };
 }
 
 export async function getFeaturedEvents() {
-  return demoData.events.slice(0, 3)
+  const snapshot = await db.collection('events').limit(3).get();
+  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 }
 
 export async function getFeaturedPetitions() {
-  return demoData.petitions.slice(0, 3)
+  const snapshot = await db.collection('petitions').limit(3).get();
+  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 }
 
 export async function getAllEvents() {
-  return demoData.events
+  const snapshot = await db.collection('events').get();
+  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 }
 
 export async function getEventBySlug(slug) {
-  return demoData.events.find(e => e.slug === slug) || null
+  const snapshot = await db.collection('events').where('slug', '==', slug).limit(1).get();
+  if (snapshot.empty) return null;
+  return { id: snapshot.docs[0].id, ...snapshot.docs[0].data() };
 }
 
 export async function getEventById(id) {
-  return demoData.events.find(e => e.id === id) || null
+  const docRef = await db.collection('events').doc(id).get();
+  if (!docRef.exists) return null;
+  return { id: docRef.id, ...docRef.data() };
 }
 
 export async function getEventsByCategory(category) {
-  return demoData.events.filter(e => e.category === category)
+  const snapshot = await db.collection('events').where('category', '==', category).get();
+  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 }
 
 export async function getEventsByDate(date) {
-  return demoData.events.filter(e => e.date === date)
+  const snapshot = await db.collection('events').where('date', '==', date).get();
+  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 }
 
 export async function getEventsForCalendar() {
-  return demoData.events.map(e => ({
-    id: e.id,
-    title: e.title,
-    date: e.date,
-    category: e.category
-  }))
+  const snapshot = await db.collection('events').select('id', 'title', 'date', 'category').get();
+  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 }
 
 export async function getAllPetitions() {
-  return demoData.petitions
+  const snapshot = await db.collection('petitions').get();
+  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 }
 
 export async function getPetitionBySlug(slug) {
-  return demoData.petitions.find(p => p.slug === slug) || null
+  const snapshot = await db.collection('petitions').where('slug', '==', slug).limit(1).get();
+  if (snapshot.empty) return null;
+  return { id: snapshot.docs[0].id, ...snapshot.docs[0].data() };
 }
 
 export async function getPetitionById(id) {
-  return demoData.petitions.find(p => p.id === id) || null
+  const docRef = await db.collection('petitions').doc(id).get();
+  if (!docRef.exists) return null;
+  return { id: docRef.id, ...docRef.data() };
 }
 
 export async function getPetitionsByStatus(status) {
-  return demoData.petitions.filter(p => p.status === status)
+  const snapshot = await db.collection('petitions').where('status', '==', status).get();
+  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 }
 
 export async function getPetitionsByCategory(category) {
-  return demoData.petitions.filter(p => p.category === category)
+  const snapshot = await db.collection('petitions').where('category', '==', category).get();
+  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 }
 
 export async function getAllClubs() {
-  return demoData.clubs
+  const snapshot = await db.collection('clubs').get();
+  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 }
 
 export async function getClubById(id) {
-  return demoData.clubs.find(c => c.id === id) || null
+  const docRef = await db.collection('clubs').doc(id).get();
+  if (!docRef.exists) return null;
+  return { id: docRef.id, ...docRef.data() };
 }
 
 export async function getClubsByCategory(category) {
-  return demoData.clubs.filter(c => c.category === category)
+  const snapshot = await db.collection('clubs').where('category', '==', category).get();
+  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 }
 
 export async function getAllSponsors() {
-  return demoData.sponsors
+  const snapshot = await db.collection('sponsors').get();
+  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 }
 
 export async function getSponsorById(id) {
-  return demoData.sponsors.find(s => s.id === id) || null
+  const docRef = await db.collection('sponsors').doc(id).get();
+  if (!docRef.exists) return null;
+  return { id: docRef.id, ...docRef.data() };
 }
 
 export async function getSponsorsByTier(tier) {
-  return demoData.sponsors.filter(s => s.tier === tier)
+  const snapshot = await db.collection('sponsors').where('tier', '==', tier).get();
+  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 }
 
 export async function getAllFinanceRecords() {
-  return demoData.financeRecords
+  const snapshot = await db.collection('financeRecords').get();
+  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 }
 
 export async function getFinanceRecordById(id) {
-  return demoData.financeRecords.find(f => f.id === id) || null
+  const docRef = await db.collection('financeRecords').doc(id).get();
+  if (!docRef.exists) return null;
+  return { id: docRef.id, ...docRef.data() };
 }
 
 export async function getAllReimbursements() {
-  return demoData.reimbursements
+  const snapshot = await db.collection('reimbursements').get();
+  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 }
 
 export async function getReimbursementById(id) {
-  return demoData.reimbursements.find(r => r.id === id) || null
+  const docRef = await db.collection('reimbursements').doc(id).get();
+  if (!docRef.exists) return null;
+  return { id: docRef.id, ...docRef.data() };
 }
 
 export async function getAllBudgetRequests() {
-  return demoData.budgetRequests
+  const snapshot = await db.collection('budgetRequests').get();
+  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 }
 
 export async function getBudgetRequestById(id) {
-  return demoData.budgetRequests.find(b => b.id === id) || null
+  const docRef = await db.collection('budgetRequests').doc(id).get();
+  if (!docRef.exists) return null;
+  return { id: docRef.id, ...docRef.data() };
 }
 
 export async function getUserById(id) {
-  return null
+  const docRef = await db.collection('users').doc(id).get();
+  if (!docRef.exists) return null;
+  return { id: docRef.id, ...docRef.data() };
 }
 
 export async function getAdminStats() {
-  const totalIncome = demoData.financeRecords.filter(f => f.type === 'income').reduce((sum, f) => sum + f.amount, 0)
-  const totalExpenses = demoData.financeRecords.filter(f => f.type === 'expense').reduce((sum, f) => sum + f.amount, 0)
-  const pendingReimbursements = demoData.reimbursements.filter(r => r.status === 'Pending').reduce((sum, r) => sum + r.amount, 0)
-  const pendingBudgetRequests = demoData.budgetRequests.filter(b => b.status === 'Pending').reduce((sum, b) => sum + b.amount, 0)
-  const totalSponsorship = demoData.sponsors.reduce((sum, s) => sum + s.contribution, 0)
+  const [
+    eventsSnap,
+    petitionsSnap,
+    openPetitionsSnap,
+    clubsSnap,
+    sponsorsSnap,
+    financeRecordsSnap,
+    reimbursementsSnap,
+    budgetRequestsSnap
+  ] = await Promise.all([
+    db.collection('events').count().get(),
+    db.collection('petitions').count().get(),
+    db.collection('petitions').where('status', '==', 'Open').count().get(),
+    db.collection('clubs').count().get(),
+    db.collection('sponsors').get(),
+    db.collection('financeRecords').get(),
+    db.collection('reimbursements').where('status', '==', 'Pending').get(),
+    db.collection('budgetRequests').where('status', '==', 'Pending').get(),
+  ]);
+
+  const totalIncome = financeRecordsSnap.docs
+    .filter(doc => doc.data().type === 'income')
+    .reduce((sum, doc) => sum + doc.data().amount, 0);
+  
+  const totalExpenses = financeRecordsSnap.docs
+    .filter(doc => doc.data().type === 'expense')
+    .reduce((sum, doc) => sum + doc.data().amount, 0);
+
+  const pendingReimbursements = reimbursementsSnap.docs.reduce((sum, doc) => sum + doc.data().amount, 0);
+  const pendingBudgetRequests = budgetRequestsSnap.docs.reduce((sum, doc) => sum + doc.data().amount, 0);
+  const totalSponsorship = sponsorsSnap.docs.reduce((sum, doc) => sum + doc.data().contribution, 0);
 
   return {
-    totalEvents: demoData.events.length,
-    totalPetitions: demoData.petitions.length,
-    openPetitions: demoData.petitions.filter(p => p.status === 'Open').length,
-    totalClubs: demoData.clubs.length,
-    totalSponsors: demoData.sponsors.length,
+    totalEvents: eventsSnap.data().count,
+    totalPetitions: petitionsSnap.data().count,
+    openPetitions: openPetitionsSnap.data().count,
+    totalClubs: clubsSnap.data().count,
+    totalSponsors: sponsorsSnap.size,
     totalIncome,
     totalExpenses,
     balance: totalIncome - totalExpenses,
     pendingReimbursements,
     pendingBudgetRequests,
     totalSponsorship,
-  }
+  };
 }
 
 export async function getRecentActivity() {
-  const recentEvents = demoData.events.slice(0, 3).map(e => ({
-    type: 'event',
-    title: e.title,
-    date: e.date,
-    status: e.status,
-  }))
+  const [eventsSnap, petitionsSnap] = await Promise.all([
+    db.collection('events').limit(3).get(),
+    db.collection('petitions').limit(3).get(),
+  ]);
 
-  const recentPetitions = demoData.petitions.slice(0, 3).map(p => ({
+  const recentEvents = eventsSnap.docs.map(doc => ({
+    type: 'event',
+    title: doc.data().title,
+    date: doc.data().date,
+    status: doc.data().status,
+  }));
+
+  const recentPetitions = petitionsSnap.docs.map(doc => ({
     type: 'petition',
-    title: p.title,
-    date: p.created_at,
-    status: p.status,
-  }))
+    title: doc.data().title,
+    date: doc.data().createdAt,
+    status: doc.data().status,
+  }));
 
   return [...recentEvents, ...recentPetitions]
     .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 5)
+    .slice(0, 5);
 }
 
-// Admin CRUD operations
 export async function createEvent(eventData) {
-  const newEvent = {
+  const docRef = await db.collection('events').add({
     id: uuidv4(),
     ...eventData
-  }
-  demoData.events.push(newEvent)
-  return newEvent
+  });
+  const doc = await docRef.get();
+  return { id: doc.id, ...doc.data() };
 }
 
 export async function updateEvent(id, eventData) {
-  const index = demoData.events.findIndex(e => e.id === id)
-  if (index !== -1) {
-    demoData.events[index] = { ...demoData.events[index], ...eventData }
-    return demoData.events[index]
-  }
-  return null
+  const docRef = db.collection('events').doc(id);
+  await docRef.update(eventData);
+  const doc = await docRef.get();
+  return { id: doc.id, ...doc.data() };
 }
 
 export async function deleteEvent(id) {
-  const index = demoData.events.findIndex(e => e.id === id)
-  if (index !== -1) {
-    demoData.events.splice(index, 1)
-    return true
-  }
-  return false
+  await db.collection('events').doc(id).delete();
+  return true;
 }
 
 export async function createPetition(petitionData) {
-  const newPetition = {
+  const docRef = await db.collection('petitions').add({
     id: uuidv4(),
+    comments: [],
     ...petitionData
-  }
-  demoData.petitions.push(newPetition)
-  return newPetition
+  });
+  const doc = await docRef.get();
+  return { id: doc.id, ...doc.data() };
 }
 
 export async function updatePetition(id, petitionData) {
-  const index = demoData.petitions.findIndex(p => p.id === id)
-  if (index !== -1) {
-    demoData.petitions[index] = { ...demoData.petitions[index], ...petitionData }
-    return demoData.petitions[index]
-  }
-  return null
+  const docRef = db.collection('petitions').doc(id);
+  await docRef.update(petitionData);
+  const doc = await docRef.get();
+  return { id: doc.id, ...doc.data() };
 }
 
 export async function deletePetition(id) {
-  const index = demoData.petitions.findIndex(p => p.id === id)
-  if (index !== -1) {
-    demoData.petitions.splice(index, 1)
-    return true
-  }
-  return false
+  await db.collection('petitions').doc(id).delete();
+  return true;
 }
 
 export async function createComment(commentData) {
+  const petitionRef = db.collection('petitions').doc(commentData.petitionId);
+  const petitionDoc = await petitionRef.get();
+  if (!petitionDoc.exists) return null;
+
   const newComment = {
     id: uuidv4(),
     ...commentData
-  }
-  const petition = demoData.petitions.find(p => p.id === commentData.petitionId)
-  if (petition) {
-    if (!petition.comments) {
-      petition.comments = []
-    }
-    petition.comments.push(newComment)
-  }
-  return newComment
+  };
+
+  await petitionRef.update({
+    comments: [...(petitionDoc.data().comments || []), newComment]
+  });
+
+  return newComment;
 }
 
 export async function getCommentsByPetitionId(petitionId) {
-  const petition = demoData.petitions.find(p => p.id === petitionId)
-  return petition ? petition.comments : []
+  const docRef = await db.collection('petitions').doc(petitionId).get();
+  if (!docRef.exists) return [];
+  return docRef.data().comments || [];
 }
 
 export async function createClub(clubData) {
-  const newClub = {
+  const docRef = await db.collection('clubs').add({
     id: uuidv4(),
     ...clubData
-  }
-  demoData.clubs.push(newClub)
-  return newClub
+  });
+  const doc = await docRef.get();
+  return { id: doc.id, ...doc.data() };
 }
 
 export async function updateClub(id, clubData) {
-  const index = demoData.clubs.findIndex(c => c.id === id)
-  if (index !== -1) {
-    demoData.clubs[index] = { ...demoData.clubs[index], ...clubData }
-    return demoData.clubs[index]
-  }
-  return null
+  const docRef = db.collection('clubs').doc(id);
+  await docRef.update(clubData);
+  const doc = await docRef.get();
+  return { id: doc.id, ...doc.data() };
 }
 
 export async function deleteClub(id) {
-  const index = demoData.clubs.findIndex(c => c.id === id)
-  if (index !== -1) {
-    demoData.clubs.splice(index, 1)
-    return true
-  }
-  return false
+  await db.collection('clubs').doc(id).delete();
+  return true;
 }
 
 export async function createSponsor(sponsorData) {
-  const newSponsor = {
+  const docRef = await db.collection('sponsors').add({
     id: uuidv4(),
     ...sponsorData
-  }
-  demoData.sponsors.push(newSponsor)
-  return newSponsor
+  });
+  const doc = await docRef.get();
+  return { id: doc.id, ...doc.data() };
 }
 
 export async function updateSponsor(id, sponsorData) {
-  const index = demoData.sponsors.findIndex(s => s.id === id)
-  if (index !== -1) {
-    demoData.sponsors[index] = { ...demoData.sponsors[index], ...sponsorData }
-    return demoData.sponsors[index]
-  }
-  return null
+  const docRef = db.collection('sponsors').doc(id);
+  await docRef.update(sponsorData);
+  const doc = await docRef.get();
+  return { id: doc.id, ...doc.data() };
 }
 
 export async function deleteSponsor(id) {
-  const index = demoData.sponsors.findIndex(s => s.id === id)
-  if (index !== -1) {
-    demoData.sponsors.splice(index, 1)
-    return true
-  }
-  return false
+  await db.collection('sponsors').doc(id).delete();
+  return true;
 }
 
 export async function togglePetitionSupport(petitionId, userId) {
+  const petitionRef = db.collection('petitions').doc(petitionId);
+  const petitionDoc = await petitionRef.get();
+  if (!petitionDoc.exists) return { success: false };
+
+  const supportersRef = petitionRef.collection('supporters');
+  const userSupportDoc = await supportersRef.doc(userId).get();
+
+  let supportAdded;
+  let newSupportersCount;
+
+  if (userSupportDoc.exists) {
+    await supportersRef.doc(userId).delete();
+    supportAdded = false;
+    newSupportersCount = petitionDoc.data().supporters - 1;
+  } else {
+    await supportersRef.doc(userId).set({
+      userId,
+      supportedAt: new Date().toISOString()
+    });
+    supportAdded = true;
+    newSupportersCount = petitionDoc.data().supporters + 1;
+  }
+
+  await petitionRef.update({ supporters: newSupportersCount });
+
   return {
     success: true,
-    supportAdded: true,
-    supporters: 100
-  }
+    supportAdded,
+    supporters: newSupportersCount
+  };
 }
 
 export async function checkPetitionSupport(petitionId, userId) {
-  return false
+  const supporterDoc = await db.collection('petitions').doc(petitionId).collection('supporters').doc(userId).get();
+  return supporterDoc.exists;
 }
