@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       colors: {
         primary: {
+          DEFAULT: '#0ea5e9',
           50: '#f0f9ff',
           100: '#e0f2fe',
           200: '#bae6fd',
@@ -20,6 +21,7 @@ module.exports = {
           900: '#0c4a6e',
         },
         secondary: {
+          DEFAULT: '#64748b',
           50: '#f8fafc',
           100: '#f1f5f9',
           200: '#e2e8f0',
@@ -32,6 +34,7 @@ module.exports = {
           900: '#0f172a',
         },
         accent: {
+          DEFAULT: '#22c55e',
           50: '#f0fdf4',
           100: '#dcfce7',
           200: '#bbf7d0',
