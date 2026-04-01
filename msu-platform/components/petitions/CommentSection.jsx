@@ -5,7 +5,6 @@ import { MessageCircle } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { formatDate } from '@/lib/utils'
 import { createComment } from '@/lib/data'
-import { supabase } from '@/lib/supabase'
 
 export default function CommentSection({ comments, petitionId }) {
   const [newComment, setNewComment] = useState('')
@@ -18,16 +17,10 @@ export default function CommentSection({ comments, petitionId }) {
     
     setIsSubmitting(true)
     try {
-      const { data: { user } } = await supabase.auth.getUser()
-      if (!user) {
-        alert('You must be logged in to comment')
-        return
-      }
-      
       await createComment({
         petition_id: petitionId,
-        author: user.email.split('@')[0], // Simple username extraction
-        author_id: user.id,
+        author: 'guest',
+        author_id: 'guest',
         content: newComment.trim()
       })
       
