@@ -37,10 +37,10 @@ export default function NewPetitionPage() {
   }
 
   return (
-    <div className="page-container max-w-3xl">
+    <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
       <Link 
         href="/petitions" 
-        className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6"
+        className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6 mt-8"
       >
         <ArrowLeft className="w-4 h-4" />
         Back to Petitions
@@ -53,7 +53,7 @@ export default function NewPetitionPage() {
         </p>
       </div>
 
-      <div className="card p-6">
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
         <form onSubmit={handleSubmit} className="space-y-6">
           <Input
             label="Petition Title"

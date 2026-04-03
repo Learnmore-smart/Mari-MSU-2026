@@ -4,7 +4,7 @@ import { formatDate } from '@/lib/utils'
 export default function EventCard({ event }) {
   return (
     <Link href={`/events/${event.slug}`}>
-      <div className="card-hover h-full">
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md hover:border-gray-200 transition-all duration-200 h-full">
         <div className="aspect-video relative overflow-hidden">
           <img
             src={event.image}
@@ -12,7 +12,7 @@ export default function EventCard({ event }) {
             className="w-full h-full object-cover"
           />
           <div className="absolute top-3 right-3">
-            <span className="status-badge bg-msu-blue text-white">
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-msu-blue text-white">
               {event.category}
             </span>
           </div>

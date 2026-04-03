@@ -7,7 +7,7 @@ export default function PetitionCard({ petition }) {
 
   return (
     <Link href={`/petitions/${petition.slug}`}>
-      <div className="card-hover h-full p-5">
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md hover:border-gray-200 transition-all duration-200 h-full p-5">
         <div className="flex items-start justify-between mb-3">
           <span className={getStatusColor(petition.status)}>{petition.status}</span>
           <span className="text-xs text-gray-500">{petition.category}</span>

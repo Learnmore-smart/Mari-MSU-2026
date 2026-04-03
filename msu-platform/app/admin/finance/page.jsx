@@ -46,7 +46,7 @@ export default async function AdminFinancePage() {
       </div>
 
       <div className="grid lg:grid-cols-2 gap-6 mb-8">
-        <div className="card">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100">
           <div className="px-6 py-4 border-b border-gray-100">
             <h2 className="font-semibold text-gray-900">Recent Transactions</h2>
           </div>
@@ -68,7 +68,7 @@ export default async function AdminFinancePage() {
           </div>
         </div>
 
-        <div className="card">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100">
           <div className="px-6 py-4 border-b border-gray-100">
             <h2 className="font-semibold text-gray-900">Pending Reimbursements</h2>
           </div>
@@ -89,7 +89,7 @@ export default async function AdminFinancePage() {
         </div>
       </div>
 
-      <div className="card">
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100">
         <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
           <h2 className="font-semibold text-gray-900">Budget Requests</h2>
           <Button size="sm">New Request</Button>

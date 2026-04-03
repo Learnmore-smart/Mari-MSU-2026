@@ -11,14 +11,22 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-let app;
-if (!getApps().length) {
-  app = initializeApp(firebaseConfig);
-} else {
-  app = getApps()[0];
-}
+let app = null;
+let db = null;
+let auth = null;
 
-const db = getFirestore(app);
-const auth = getAuth(app);
+const hasValidConfig = firebaseConfig.apiKey && firebaseConfig.projectId;
+
+if (hasValidConfig) {
+  if (!getApps().length) {
+    app = initializeApp(firebaseConfig);
+  } else {
+    app = getApps()[0];
+  }
+  db = getFirestore(app);
+  auth = getAuth(app);
+} else {
+  console.warn('Firebase Client SDK not initialized: missing environment variables');
+}
 
 export { app, db, auth };

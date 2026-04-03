@@ -11,8 +11,8 @@ export default async function EventsPage() {
   const events = await getAllEvents()
 
   return (
-    <div className="page-container">
-      <div className="mb-8">
+    <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <div className="mb-8 pt-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Events</h1>
         <p className="text-gray-600">
           Discover and attend exciting events happening at Marianopolis College

@@ -81,7 +81,7 @@ export default async function AdminDashboard() {
       </div>
 
       <div className="grid lg:grid-cols-2 gap-6">
-        <div className="card">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100">
           <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
             <h2 className="font-semibold text-gray-900">Recent Events</h2>
             <Link href="/admin/events" className="text-msu-blue text-sm hover:underline">
@@ -100,7 +100,7 @@ export default async function AdminDashboard() {
                   <p className="font-medium text-gray-900 truncate">{event.title}</p>
                   <p className="text-sm text-gray-500">{formatDate(event.date)}</p>
                 </div>
-                <span className="status-badge bg-msu-blue/10 text-msu-blue">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-msu-blue/10 text-msu-blue">
                   {event.category}
                 </span>
               </div>
@@ -108,7 +108,7 @@ export default async function AdminDashboard() {
           </div>
         </div>
 
-        <div className="card">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100">
           <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
             <h2 className="font-semibold text-gray-900">Recent Petitions</h2>
             <Link href="/admin/petitions" className="text-msu-blue text-sm hover:underline">
@@ -136,24 +136,24 @@ export default async function AdminDashboard() {
         </div>
       </div>
 
-      <div className="mt-6 card">
+      <div className="mt-6 bg-white rounded-xl shadow-sm border border-gray-100">
         <div className="px-6 py-4 border-b border-gray-100">
           <h2 className="font-semibold text-gray-900">Quick Actions</h2>
         </div>
         <div className="p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Link href="/admin/events" className="card-hover p-4 text-center">
+          <Link href="/admin/events" className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md hover:border-gray-200 transition-all duration-200 p-4 text-center">
             <Calendar className="w-8 h-8 text-msu-blue mx-auto mb-2" />
             <span className="text-sm font-medium text-gray-900">Add Event</span>
           </Link>
-          <Link href="/admin/petitions" className="card-hover p-4 text-center">
+          <Link href="/admin/petitions" className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md hover:border-gray-200 transition-all duration-200 p-4 text-center">
             <Megaphone className="w-8 h-8 text-msu-blue mx-auto mb-2" />
             <span className="text-sm font-medium text-gray-900">Review Petitions</span>
           </Link>
-          <Link href="/admin/finance" className="card-hover p-4 text-center">
+          <Link href="/admin/finance" className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md hover:border-gray-200 transition-all duration-200 p-4 text-center">
             <DollarSign className="w-8 h-8 text-msu-blue mx-auto mb-2" />
             <span className="text-sm font-medium text-gray-900">View Finance</span>
           </Link>
-          <Link href="/admin/sponsors" className="card-hover p-4 text-center">
+          <Link href="/admin/sponsors" className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md hover:border-gray-200 transition-all duration-200 p-4 text-center">
             <Handshake className="w-8 h-8 text-msu-blue mx-auto mb-2" />
             <span className="text-sm font-medium text-gray-900">Manage Sponsors</span>
           </Link>

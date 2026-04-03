@@ -17,8 +17,8 @@ export default async function SponsorsPage() {
   const bronzeSponsors = sponsors.filter(s => s.tier === 'Bronze')
 
   return (
-    <div className="page-container">
-      <div className="mb-8">
+    <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <div className="mb-8 pt-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Our Sponsors</h1>
         <p className="text-gray-600">
           Thank you to our amazing sponsors who make student activities possible
@@ -33,7 +33,7 @@ export default async function SponsorsPage() {
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             {platinumSponsors.map((sponsor) => (
-              <div key={sponsor.id} className="card p-6 flex items-center gap-6">
+              <div key={sponsor.id} className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 flex items-center gap-6">
                 <img
                   src={sponsor.logo}
                   alt={sponsor.name}
@@ -65,7 +65,7 @@ export default async function SponsorsPage() {
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {goldSponsors.map((sponsor) => (
-              <div key={sponsor.id} className="card p-5">
+              <div key={sponsor.id} className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
                 <img
                   src={sponsor.logo}
                   alt={sponsor.name}
@@ -95,7 +95,7 @@ export default async function SponsorsPage() {
           </h2>
           <div className="grid md:grid-cols-4 gap-4">
             {silverSponsors.map((sponsor) => (
-              <div key={sponsor.id} className="card p-4 text-center">
+              <div key={sponsor.id} className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 text-center">
                 <img
                   src={sponsor.logo}
                   alt={sponsor.name}
@@ -116,7 +116,7 @@ export default async function SponsorsPage() {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
             {bronzeSponsors.map((sponsor) => (
-              <div key={sponsor.id} className="card p-3 text-center">
+              <div key={sponsor.id} className="bg-white rounded-xl shadow-sm border border-gray-100 p-3 text-center">
                 <img
                   src={sponsor.logo}
                   alt={sponsor.name}
@@ -137,10 +137,10 @@ export default async function SponsorsPage() {
           of over 2,000 students. We offer various sponsorship tiers to match your goals.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="#contact" className="btn-gold">
+          <a href="#contact" className="inline-flex items-center justify-center rounded-lg font-medium transition-colors bg-msu-gold text-white hover:bg-msu-gold/90 px-4 py-2">
             Contact Us
           </a>
-          <a href="#" className="btn bg-white/10 text-white hover:bg-white/20">
+          <a href="#" className="inline-flex items-center justify-center rounded-lg font-medium transition-colors bg-white/10 text-white hover:bg-white/20 px-4 py-2">
             Download Sponsorship Kit
           </a>
         </div>
@@ -149,21 +149,21 @@ export default async function SponsorsPage() {
       <section className="mt-12">
         <h2 className="text-xl font-semibold text-gray-900 mb-6">Sponsorship Benefits</h2>
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="card p-6">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
             <h3 className="font-semibold text-gray-900 mb-2">Brand Visibility</h3>
             <p className="text-gray-600 text-sm">
               Get your brand in front of our student community through event sponsorships, 
               website presence, and social media mentions.
             </p>
           </div>
-          <div className="card p-6">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
             <h3 className="font-semibold text-gray-900 mb-2">Recruitment Access</h3>
             <p className="text-gray-600 text-sm">
               Connect with talented students for internships, part-time positions, 
               and career opportunities.
             </p>
           </div>
-          <div className="card p-6">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
             <h3 className="font-semibold text-gray-900 mb-2">Community Impact</h3>
             <p className="text-gray-600 text-sm">
               Make a meaningful difference in student life by supporting clubs, 

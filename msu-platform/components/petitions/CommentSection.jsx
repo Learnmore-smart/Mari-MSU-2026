@@ -26,7 +26,6 @@ export default function CommentSection({ comments, petitionId }) {
       
       setNewComment('')
       setSubmitted(true)
-      // Refresh the page to see the new comment
       setTimeout(() => {
         window.location.reload()
       }, 1000)
@@ -39,7 +38,7 @@ export default function CommentSection({ comments, petitionId }) {
   }
   
   return (
-    <div className="card p-6">
+    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
       <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
         <MessageCircle className="w-5 h-5" />
         Comments ({comments?.length || 0})

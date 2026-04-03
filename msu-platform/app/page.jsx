@@ -12,7 +12,7 @@ export default async function HomePage() {
   return (
     <div>
       <section className="bg-gradient-to-br from-msu-blue to-blue-800 text-white">
-        <div className="page-container py-20">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-20">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Welcome to the MSU Platform
@@ -21,10 +21,10 @@ export default async function HomePage() {
               Your hub for events, petitions, clubs, and student life at Marianopolis College.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/events" className="btn-gold">
+              <Link href="/events" className="inline-flex items-center justify-center rounded-lg font-medium transition-colors bg-msu-gold text-white hover:bg-msu-gold/90 px-4 py-2">
                 Explore Events
               </Link>
-              <Link href="/petitions" className="btn bg-white/10 text-white hover:bg-white/20">
+              <Link href="/petitions" className="inline-flex items-center justify-center rounded-lg font-medium transition-colors bg-white/10 text-white hover:bg-white/20 px-4 py-2">
                 View Petitions
               </Link>
             </div>
@@ -32,30 +32,30 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="page-container">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="card p-6 text-center">
+      <section className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-8">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center">
             <div className="text-3xl font-bold text-msu-blue">{stats.events}</div>
             <div className="text-gray-600 text-sm mt-1">Upcoming Events</div>
           </div>
-          <div className="card p-6 text-center">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center">
             <div className="text-3xl font-bold text-msu-blue">{stats.petitions}</div>
             <div className="text-gray-600 text-sm mt-1">Active Petitions</div>
           </div>
-          <div className="card p-6 text-center">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center">
             <div className="text-3xl font-bold text-msu-blue">{stats.clubs}</div>
             <div className="text-gray-600 text-sm mt-1">Student Clubs</div>
           </div>
-          <div className="card p-6 text-center">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center">
             <div className="text-3xl font-bold text-msu-blue">{stats.members}</div>
             <div className="text-gray-600 text-sm mt-1">Active Members</div>
           </div>
         </div>
       </section>
 
-      <section className="page-container">
+      <section className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="section-title flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
             <CalendarDays className="w-6 h-6 text-msu-blue" />
             Upcoming Events
           </h2>
@@ -63,16 +63,16 @@ export default async function HomePage() {
             View all events →
           </Link>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 pb-12">
           {featuredEvents.map((event) => (
             <EventCard key={event.id} event={event} />
           ))}
         </div>
       </section>
 
-      <section className="page-container">
+      <section className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="section-title flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
             <Megaphone className="w-6 h-6 text-msu-blue" />
             Active Petitions
           </h2>
@@ -80,7 +80,7 @@ export default async function HomePage() {
             View all petitions →
           </Link>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 pb-12">
           {featuredPetitions.map((petition) => (
             <PetitionCard key={petition.id} petition={petition} />
           ))}
@@ -88,9 +88,9 @@ export default async function HomePage() {
       </section>
 
       <section className="bg-gray-100">
-        <div className="page-container py-16">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-16">
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="card p-6">
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
               <Users className="w-10 h-10 text-msu-blue mb-4" />
               <h3 className="text-lg font-semibold mb-2">Join a Club</h3>
               <p className="text-gray-600 text-sm mb-4">
@@ -100,7 +100,7 @@ export default async function HomePage() {
                 Browse clubs →
               </Link>
             </div>
-            <div className="card p-6">
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
               <Megaphone className="w-10 h-10 text-msu-blue mb-4" />
               <h3 className="text-lg font-semibold mb-2">Start a Petition</h3>
               <p className="text-gray-600 text-sm mb-4">
@@ -110,7 +110,7 @@ export default async function HomePage() {
                 Create petition →
               </Link>
             </div>
-            <div className="card p-6">
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
               <Handshake className="w-10 h-10 text-msu-blue mb-4" />
               <h3 className="text-lg font-semibold mb-2">Our Partners</h3>
               <p className="text-gray-600 text-sm mb-4">
@@ -124,17 +124,17 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="page-container py-16 text-center">
+      <section className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-16 text-center">
         <h2 className="text-3xl font-bold mb-4">Ready to get involved?</h2>
         <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
           Join the MSU community today and make your voice heard. Participate in events, 
           support petitions, and connect with fellow students.
         </p>
         <div className="flex justify-center gap-4">
-          <Link href="/events" className="btn-primary">
+          <Link href="/events" className="inline-flex items-center justify-center rounded-lg font-medium transition-colors bg-msu-blue text-white hover:bg-msu-blue/90 px-4 py-2">
             Explore Events
           </Link>
-          <Link href="/petitions/new" className="btn-secondary">
+          <Link href="/petitions/new" className="inline-flex items-center justify-center rounded-lg font-medium transition-colors bg-gray-200 text-gray-900 hover:bg-gray-300 px-4 py-2">
             Start a Petition
           </Link>
         </div>

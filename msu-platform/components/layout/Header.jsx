@@ -57,7 +57,7 @@ export default function Header() {
               href="/admin"
               className={`hidden md:flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                 isAdmin
-                  ? 'bg-msu-gold text-white'
+                  ? 'bg-msu-blue/10 text-msu-blue'
                   : 'text-gray-600 hover:bg-gray-100'
               }`}
             >
@@ -100,7 +100,7 @@ export default function Header() {
                 href="/admin"
                 className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium ${
                   isAdmin
-                    ? 'bg-msu-gold text-white'
+                    ? 'bg-msu-blue/10 text-msu-blue'
                     : 'text-gray-600 hover:bg-gray-100'
                 }`}
                 onClick={() => setMobileMenuOpen(false)}

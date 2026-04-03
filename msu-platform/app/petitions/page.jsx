@@ -17,8 +17,8 @@ export default async function PetitionsPage() {
   const approvedCount = petitions.filter(p => p.status === 'Approved' || p.status === 'Implemented').length
 
   return (
-    <div className="page-container">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+    <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8 pt-8">
         <div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Petitions</h1>
           <p className="text-gray-600">
@@ -34,15 +34,15 @@ export default async function PetitionsPage() {
       </div>
 
       <div className="grid grid-cols-3 gap-4 mb-8">
-        <div className="card p-4 text-center">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 text-center">
           <div className="text-2xl font-bold text-green-600">{openCount}</div>
           <div className="text-sm text-gray-500">Open</div>
         </div>
-        <div className="card p-4 text-center">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 text-center">
           <div className="text-2xl font-bold text-orange-600">{reviewCount}</div>
           <div className="text-sm text-gray-500">Under Review</div>
         </div>
-        <div className="card p-4 text-center">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 text-center">
           <div className="text-2xl font-bold text-blue-600">{approvedCount}</div>
           <div className="text-sm text-gray-500">Approved</div>
         </div>

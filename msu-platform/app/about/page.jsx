@@ -12,7 +12,7 @@ export default function AboutPage() {
   return (
     <div>
       <section className="bg-gradient-to-br from-msu-blue to-blue-800 text-white">
-        <div className="page-container py-16">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-16">
           <div className="max-w-3xl">
             <h1 className="text-4xl font-bold mb-6">About MSU</h1>
             <p className="text-xl text-blue-100">
@@ -23,8 +23,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="page-container">
-        <div className="grid md:grid-cols-2 gap-12">
+      <section className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="grid md:grid-cols-2 gap-12 py-12">
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h2>
             <p className="text-gray-600 mb-4">
@@ -58,27 +58,27 @@ export default function AboutPage() {
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">What We Do</h2>
             <div className="space-y-4">
-              <div className="card p-4">
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
                 <h3 className="font-semibold text-gray-900 mb-1">Events & Activities</h3>
                 <p className="text-gray-600 text-sm">
                   From social gatherings to academic workshops, we organize diverse events 
                   throughout the year.
                 </p>
               </div>
-              <div className="card p-4">
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
                 <h3 className="font-semibold text-gray-900 mb-1">Student Advocacy</h3>
                 <p className="text-gray-600 text-sm">
                   We represent student interests to the administration and work to improve 
                   campus policies.
                 </p>
               </div>
-              <div className="card p-4">
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
                 <h3 className="font-semibold text-gray-900 mb-1">Club Support</h3>
                 <p className="text-gray-600 text-sm">
                   We provide funding, resources, and guidance to student clubs and organizations.
                 </p>
               </div>
-              <div className="card p-4">
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
                 <h3 className="font-semibold text-gray-900 mb-1">Community Service</h3>
                 <p className="text-gray-600 text-sm">
                   We coordinate volunteer opportunities and community outreach programs.
@@ -90,7 +90,7 @@ export default function AboutPage() {
       </section>
 
       <section className="bg-gray-100">
-        <div className="page-container py-16">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-16">
           <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">MSU Executive Team</h2>
           <div className="grid md:grid-cols-4 gap-6">
             {[
@@ -99,7 +99,7 @@ export default function AboutPage() {
               { name: 'Michael Brown', role: 'Treasurer', image: 'https://via.placeholder.com/150' },
               { name: 'Emma Wilson', role: 'Secretary', image: 'https://via.placeholder.com/150' },
             ].map((member) => (
-              <div key={member.name} className="card p-6 text-center">
+              <div key={member.name} className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center">
                 <img
                   src={member.image}
                   alt={member.name}
@@ -113,7 +113,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="contact" className="page-container py-16">
+      <section id="contact" className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-16">
         <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Get in Touch</h2>
         
         <div className="grid md:grid-cols-2 gap-12">

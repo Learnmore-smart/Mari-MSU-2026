@@ -21,26 +21,26 @@ export default async function AdminPetitionsPage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-4 mb-6">
-        <div className="card p-4 text-center">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 text-center">
           <div className="text-2xl font-bold text-green-600">
             {petitions.filter(p => p.status === 'Open').length}
           </div>
           <div className="text-sm text-gray-500">Open</div>
         </div>
-        <div className="card p-4 text-center">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 text-center">
           <div className="text-2xl font-bold text-orange-600">
             {petitions.filter(p => p.status === 'Under Review').length}
           </div>
           <div className="text-sm text-gray-500">Under Review</div>
         </div>
-        <div className="card p-4 text-center">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 text-center">
           <div className="text-2xl font-bold text-blue-600">
             {petitions.filter(p => p.status === 'Approved').length}
           </div>
           <div className="text-sm text-gray-500">Approved</div>
         </div>
-        <div className="card p-4 text-center">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 text-center">
           <div className="text-2xl font-bold text-purple-600">
             {petitions.filter(p => p.status === 'Implemented').length}
           </div>
@@ -48,7 +48,7 @@ export default async function AdminPetitionsPage() {
         </div>
       </div>
 
-      <div className="card overflow-hidden">
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
@@ -89,7 +89,7 @@ export default async function AdminPetitionsPage() {
                     {petition.author}
                   </td>
                   <td className="px-6 py-4">
-                    <span className="status-badge bg-gray-100 text-gray-700">
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium bg-msu-blue/10 text-msu-blue border border-msu-blue/20">
                       {petition.category}
                     </span>
                   </td>

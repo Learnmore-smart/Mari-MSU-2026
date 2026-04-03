@@ -34,10 +34,10 @@ export default async function PetitionDetailPage({ params }) {
   const supportPercentage = Math.round((petition.supporters / petition.target_supporters) * 100)
 
   return (
-    <div className="page-container">
+    <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
       <Link 
         href="/petitions" 
-        className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6"
+        className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6 mt-8"
       >
         <ArrowLeft className="w-4 h-4" />
         Back to Petitions
@@ -45,7 +45,7 @@ export default async function PetitionDetailPage({ params }) {
 
       <div className="grid lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 space-y-6">
-          <div className="card p-6">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
             <div className="flex items-start justify-between mb-4">
               <span className={getStatusColor(petition.status)}>{petition.status}</span>
               <span className="text-sm text-gray-500">{petition.category}</span>
@@ -81,7 +81,7 @@ export default async function PetitionDetailPage({ params }) {
         </div>
 
         <div className="lg:col-span-1">
-          <div className="card p-6 sticky top-24">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 sticky top-24">
             <div className="text-center mb-6">
                 <div className="text-4xl font-bold text-msu-blue mb-1">
                   {petition.supporters}

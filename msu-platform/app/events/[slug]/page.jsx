@@ -33,10 +33,10 @@ export default async function EventDetailPage({ params }) {
   const isFull = spotsLeft <= 0
 
   return (
-    <div className="page-container">
+    <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
       <Link 
         href="/events" 
-        className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6"
+        className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6 mt-8"
       >
         <ArrowLeft className="w-4 h-4" />
         Back to Events
@@ -44,7 +44,7 @@ export default async function EventDetailPage({ params }) {
 
       <div className="grid lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
-          <div className="card overflow-hidden">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
             <div className="aspect-video relative">
               <img
                 src={event.image}
@@ -52,7 +52,7 @@ export default async function EventDetailPage({ params }) {
                 className="w-full h-full object-cover"
               />
               <div className="absolute top-4 left-4">
-                <span className="status-badge bg-msu-blue text-white">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-msu-blue text-white">
                   {event.category}
                 </span>
               </div>
@@ -99,7 +99,7 @@ export default async function EventDetailPage({ params }) {
         </div>
 
         <div className="lg:col-span-1">
-          <div className="card p-6 sticky top-24">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 sticky top-24">
             <h3 className="font-semibold text-gray-900 mb-4">Event Details</h3>
             
             <div className="space-y-3 mb-6">

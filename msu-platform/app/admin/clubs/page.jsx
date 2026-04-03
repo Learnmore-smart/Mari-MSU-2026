@@ -25,7 +25,7 @@ export default async function AdminClubsPage() {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {clubs.map((club) => (
-          <div key={club.id} className="card overflow-hidden">
+          <div key={club.id} className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
             <div className="aspect-video relative">
               <img
                 src={club.image}
@@ -33,7 +33,7 @@ export default async function AdminClubsPage() {
                 className="w-full h-full object-cover"
               />
               <div className="absolute top-3 right-3">
-                <span className="status-badge bg-msu-blue text-white">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-msu-blue text-white">
                   {club.category}
                 </span>
               </div>

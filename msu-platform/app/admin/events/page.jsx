@@ -27,7 +27,7 @@ export default async function AdminEventsPage() {
         </Link>
       </div>
 
-      <div className="card overflow-hidden">
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
@@ -78,7 +78,7 @@ export default async function AdminEventsPage() {
                     {event.location}
                   </td>
                   <td className="px-6 py-4">
-                    <span className="status-badge bg-msu-blue/10 text-msu-blue">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-msu-blue/10 text-msu-blue">
                       {event.category}
                     </span>
                   </td>

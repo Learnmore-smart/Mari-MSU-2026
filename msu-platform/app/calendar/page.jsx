@@ -40,15 +40,15 @@ export default async function CalendarPage() {
   }
 
   return (
-    <div className="page-container">
-      <div className="mb-8">
+    <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <div className="mb-8 pt-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Event Calendar</h1>
         <p className="text-gray-600">
           View all upcoming events in a calendar format
         </p>
       </div>
 
-      <div className="card">
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100">
         <div className="p-4 border-b border-gray-100 flex items-center justify-between">
           <button className="p-2 hover:bg-gray-100 rounded-lg">
             <ChevronLeft className="w-5 h-5 text-gray-600" />
@@ -118,7 +118,7 @@ export default async function CalendarPage() {
             <Link
               key={event.id}
               href={`/events?date=${event.date}`}
-              className="card p-4 flex items-center gap-4 hover:shadow-md transition-shadow"
+              className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 flex items-center gap-4 hover:shadow-md transition-shadow"
             >
               <div className="w-12 h-12 bg-msu-blue/10 rounded-lg flex items-center justify-center">
                 <span className="text-msu-blue font-bold">
@@ -129,7 +129,7 @@ export default async function CalendarPage() {
                 <h3 className="font-medium text-gray-900">{event.title}</h3>
                 <p className="text-sm text-gray-500">{formatDate(event.date)}</p>
               </div>
-              <span className="status-badge bg-msu-blue/10 text-msu-blue">
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-msu-blue/10 text-msu-blue">
                 {event.category}
               </span>
             </Link>

@@ -27,30 +27,30 @@ export default async function AdminSponsorsPage() {
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-        <div className="card p-4 text-center">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 text-center">
           <div className="text-2xl font-bold text-msu-blue">{sponsors.length}</div>
           <div className="text-sm text-gray-500">Total Sponsors</div>
         </div>
-        <div className="card p-4 text-center">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 text-center">
           <div className="text-2xl font-bold text-purple-600">
             {sponsors.filter(s => s.tier === 'Platinum').length}
           </div>
           <div className="text-sm text-gray-500">Platinum</div>
         </div>
-        <div className="card p-4 text-center">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 text-center">
           <div className="text-2xl font-bold text-yellow-600">
             {sponsors.filter(s => s.tier === 'Gold').length}
           </div>
           <div className="text-sm text-gray-500">Gold</div>
         </div>
-        <div className="card p-4 text-center">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 text-center">
           <div className="text-2xl font-bold text-green-600">{formatCurrency(totalSponsorship)}</div>
           <div className="text-sm text-gray-500">Total Contributions</div>
         </div>
       </div>
 
-      <div className="card overflow-hidden">
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
