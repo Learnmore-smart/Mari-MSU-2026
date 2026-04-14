@@ -1,5 +1,4 @@
 import EventCard from '@/components/events/EventCard'
-import { basePath } from '@/lib/basePath'
 import { getAllEvents } from '@/lib/data'
 import { Calendar, MapPin, Clock } from 'lucide-react'
 
