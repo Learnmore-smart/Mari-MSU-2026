@@ -1,5 +1,4 @@
 import PetitionCard from '@/components/petitions/PetitionCard'
-import { basePath } from '@/lib/basePath'
 import { getAllPetitions } from '@/lib/data'
 import Link from 'next/link'
 import { Plus, Filter } from 'lucide-react'
@@ -26,7 +25,7 @@ export default async function PetitionsPage() {
             Support causes that matter to you and make your voice heard
           </p>
         </div>
-        <Link href={basePath + '/petitions/new'}>
+        <Link href="/petitions/new">
           <Button className="flex items-center gap-2">
             <Plus className="w-4 h-4" />
             Start a Petition

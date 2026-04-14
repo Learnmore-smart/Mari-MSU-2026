@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { basePath } from '@/lib/basePath'
 import { getEventsForCalendar } from '@/lib/data'
 import { formatDate } from '@/lib/utils'
 import { ChevronLeft, ChevronRight } from 'lucide-react'

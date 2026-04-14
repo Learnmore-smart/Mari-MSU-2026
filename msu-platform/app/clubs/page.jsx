@@ -1,5 +1,4 @@
 import { getAllClubs } from '@/lib/data'
-import { basePath } from '@/lib/basePath'
 import { Users, Mail, Clock } from 'lucide-react'
 import Link from 'next/link'
 

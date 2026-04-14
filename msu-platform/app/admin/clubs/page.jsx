@@ -1,5 +1,4 @@
 import AdminLayout from '@/components/admin/AdminLayout'
-import { basePath } from '@/lib/basePath'
 import { getAllClubs } from '@/lib/data'
 import { Button } from '@/components/ui/Button'
 import { Plus, Edit, Trash2, Users, Mail } from 'lucide-react'

@@ -1,5 +1,4 @@
 import AdminLayout from '@/components/admin/AdminLayout'
-import { basePath } from '@/lib/basePath'
 import { getAdminStats, getRecentActivity, getAllEvents, getAllPetitions } from '@/lib/data'
 import { KPICard } from '@/components/admin/KPICard'
 import { formatCurrency, formatDate, getStatusColor } from '@/lib/utils'

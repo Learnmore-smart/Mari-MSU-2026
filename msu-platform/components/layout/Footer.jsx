@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { basePath } from '@/lib/basePath'
 import { Calendar, Megaphone, Users, Handshake, Info } from 'lucide-react'
 
 const footerLinks = [
@@ -36,7 +35,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1">
-            <Link href={basePath + '/'} className="flex items-center gap-2 mb-4">
+            <Link href="/" className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 bg-msu-blue rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">M</span>
               </div>
@@ -57,7 +56,7 @@ export default function Footer() {
                 {section.links.map((link) => (
                   <li key={link.name}>
                     <Link
-                      href={link.href.startsWith(basePath) ? link.href : basePath + link.href}
+                      href={link.href}
                       className="text-gray-400 hover:text-white text-sm transition-colors"
                     >
                       {link.name}
@@ -74,10 +73,10 @@ export default function Footer() {
             © {new Date().getFullYear()} Marianopolis Student Union. All rights reserved.
           </p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <Link href={basePath + '/about'} className="text-gray-400 hover:text-white text-sm">
+            <Link href="/about" className="text-gray-400 hover:text-white text-sm">
               Privacy Policy
             </Link>
-            <Link href={basePath + '/about'} className="text-gray-400 hover:text-white text-sm">
+            <Link href="/about" className="text-gray-400 hover:text-white text-sm">
               Terms of Service
             </Link>
           </div>

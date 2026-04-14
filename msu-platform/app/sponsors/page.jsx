@@ -1,5 +1,4 @@
 import { getAllSponsors } from '@/lib/data'
-import { basePath } from '@/lib/basePath'
 import { formatCurrency } from '@/lib/utils'
 import { TierBadge } from '@/components/ui/StatusBadge'
 import { ExternalLink, Handshake } from 'lucide-react'

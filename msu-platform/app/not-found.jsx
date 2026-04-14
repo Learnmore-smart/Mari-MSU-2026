@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { basePath } from '@/lib/basePath'
 import { ArrowLeft, Home, Search } from 'lucide-react'
 
 export default function NotFound() {
@@ -14,14 +13,14 @@ export default function NotFound() {
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
-            href={basePath + '/'}
+            href="/"
             className="inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-colors bg-msu-blue text-white hover:bg-msu-blue/90 px-5 py-2.5"
           >
             <Home className="w-4 h-4" />
             Go Home
           </Link>
           <Link
-            href={basePath + '/events'}
+            href="/events"
             className="inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-colors bg-gray-200 text-gray-900 hover:bg-gray-300 px-5 py-2.5"
           >
             <Search className="w-4 h-4" />
@@ -32,7 +31,7 @@ export default function NotFound() {
         <div className="mt-12 pt-8 border-t border-gray-200">
           <p className="text-sm text-gray-500">
             Need help?{' '}
-            <Link href={basePath + '/about#contact'} className="text-msu-blue hover:underline">
+            <Link href="/about#contact" className="text-msu-blue hover:underline">
               Contact MSU Support
             </Link>
           </p>

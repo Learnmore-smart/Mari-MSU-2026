@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation'
-import { basePath } from '@/lib/basePath'
 import Link from 'next/link'
 import { getPetitionBySlug, getAllPetitions, getCommentsByPetitionId } from '@/lib/data'
 import { formatDate, getStatusColor } from '@/lib/utils'
@@ -37,7 +36,7 @@ export default async function PetitionDetailPage({ params }) {
   return (
     <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
       <Link
-        href={basePath + '/petitions'}
+        href="/petitions"
         className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6 mt-8"
       >
         <ArrowLeft className="w-4 h-4" />

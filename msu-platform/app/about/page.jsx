@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { basePath } from '@/lib/basePath'
 import { Mail, Phone, MapPin, Clock, Users, Calendar, Heart } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Input, Textarea } from '@/components/ui/Input'
