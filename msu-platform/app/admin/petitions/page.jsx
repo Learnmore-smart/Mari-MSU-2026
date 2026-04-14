@@ -1,4 +1,5 @@
 import AdminLayout from '@/components/admin/AdminLayout'
+import { basePath } from '@/lib/basePath'
 import { getAllPetitions } from '@/lib/data'
 import { formatDate, getStatusColor } from '@/lib/utils'
 import { Button } from '@/components/ui/Button'

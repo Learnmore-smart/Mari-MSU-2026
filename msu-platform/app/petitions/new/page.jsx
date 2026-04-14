@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { basePath } from '@/lib/basePath'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { Input, Textarea, Select } from '@/components/ui/Input'
@@ -29,17 +30,17 @@ export default function NewPetitionPage() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
+
     await new Promise(resolve => setTimeout(resolve, 1000))
-    
+
     alert('Petition submitted successfully!')
     setIsSubmitting(false)
   }
 
   return (
     <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-      <Link 
-        href="/petitions" 
+      <Link
+        href={basePath + '/petitions'}
         className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6 mt-8"
       >
         <ArrowLeft className="w-4 h-4" />

@@ -1,4 +1,5 @@
 import AdminLayout from '@/components/admin/AdminLayout'
+import { basePath } from '@/lib/basePath'
 import { getAllClubs } from '@/lib/data'
 import { Button } from '@/components/ui/Button'
 import { Plus, Edit, Trash2, Users, Mail } from 'lucide-react'
@@ -44,11 +45,11 @@ export default async function AdminClubsPage() {
                   {club.name}
                 </h3>
               </div>
-              
+
               <p className="text-gray-600 text-sm mb-4 line-clamp-2">
                 {club.description}
               </p>
-              
+
               <div className="space-y-2 text-sm text-gray-500 mb-4">
                 <div className="flex items-center gap-2">
                   <Users className="w-4 h-4" />

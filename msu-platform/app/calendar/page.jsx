@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { basePath } from '@/lib/basePath'
 import { getEventsForCalendar } from '@/lib/data'
 import { formatDate } from '@/lib/utils'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
@@ -17,14 +18,14 @@ export const metadata = {
 
 export default async function CalendarPage() {
   const events = await getEventsForCalendar()
-  
+
   const currentDate = new Date()
   const currentMonth = currentDate.getMonth()
   const currentYear = currentDate.getFullYear()
-  
+
   const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay()
   const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate()
-  
+
   const days = []
   for (let i = 0; i < firstDayOfMonth; i++) {
     days.push(null)
@@ -63,18 +64,18 @@ export default async function CalendarPage() {
 
         <div className="grid grid-cols-7">
           {DAYS.map((day) => (
-            <div 
-              key={day} 
+            <div
+              key={day}
               className="p-3 text-center text-sm font-medium text-gray-500 border-b border-gray-100"
             >
               {day}
             </div>
           ))}
-          
+
           {days.map((day, index) => {
             const dayEvents = getEventsForDay(day)
             const isToday = day === currentDate.getDate()
-            
+
             return (
               <div
                 key={index}

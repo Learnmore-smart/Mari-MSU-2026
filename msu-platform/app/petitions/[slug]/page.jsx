@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import { basePath } from '@/lib/basePath'
 import Link from 'next/link'
 import { getPetitionBySlug, getAllPetitions, getCommentsByPetitionId } from '@/lib/data'
 import { formatDate, getStatusColor } from '@/lib/utils'
@@ -16,7 +17,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const petition = await getPetitionBySlug(params.slug)
   if (!petition) return { title: 'Petition Not Found' }
-  
+
   return {
     title: `${petition.title} - MSU Platform`,
     description: petition.summary,
@@ -35,8 +36,8 @@ export default async function PetitionDetailPage({ params }) {
 
   return (
     <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-      <Link 
-        href="/petitions" 
+      <Link
+        href={basePath + '/petitions'}
         className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6 mt-8"
       >
         <ArrowLeft className="w-4 h-4" />
@@ -50,11 +51,11 @@ export default async function PetitionDetailPage({ params }) {
               <span className={getStatusColor(petition.status)}>{petition.status}</span>
               <span className="text-sm text-gray-500">{petition.category}</span>
             </div>
-            
+
             <h1 className="text-2xl font-bold text-gray-900 mb-4">
               {petition.title}
             </h1>
-            
+
             <p className="text-gray-600 mb-6">
               {petition.description}
             </p>

@@ -1,4 +1,5 @@
 import AdminLayout from '@/components/admin/AdminLayout'
+import { basePath } from '@/lib/basePath'
 import { getAllSponsors } from '@/lib/data'
 import { formatCurrency } from '@/lib/utils'
 import { TierBadge } from '@/components/ui/StatusBadge'

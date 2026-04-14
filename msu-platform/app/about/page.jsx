@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { basePath } from '@/lib/basePath'
 import { Mail, Phone, MapPin, Clock, Users, Calendar, Heart } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Input, Textarea } from '@/components/ui/Input'
@@ -16,7 +17,7 @@ export default function AboutPage() {
           <div className="max-w-3xl">
             <h1 className="text-4xl font-bold mb-6">About MSU</h1>
             <p className="text-xl text-blue-100">
-              The Marianopolis Student Union is dedicated to enhancing student life 
+              The Marianopolis Student Union is dedicated to enhancing student life
               through events, advocacy, and community building.
             </p>
           </div>
@@ -28,8 +29,8 @@ export default function AboutPage() {
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h2>
             <p className="text-gray-600 mb-4">
-              The Marianopolis Student Union (MSU) serves as the representative body for all 
-              students at Marianopolis College. We are committed to creating a vibrant, 
+              The Marianopolis Student Union (MSU) serves as the representative body for all
+              students at Marianopolis College. We are committed to creating a vibrant,
               inclusive, and engaging campus community.
             </p>
             <p className="text-gray-600 mb-4">
@@ -61,14 +62,14 @@ export default function AboutPage() {
               <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
                 <h3 className="font-semibold text-gray-900 mb-1">Events & Activities</h3>
                 <p className="text-gray-600 text-sm">
-                  From social gatherings to academic workshops, we organize diverse events 
+                  From social gatherings to academic workshops, we organize diverse events
                   throughout the year.
                 </p>
               </div>
               <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
                 <h3 className="font-semibold text-gray-900 mb-1">Student Advocacy</h3>
                 <p className="text-gray-600 text-sm">
-                  We represent student interests to the administration and work to improve 
+                  We represent student interests to the administration and work to improve
                   campus policies.
                 </p>
               </div>
@@ -115,7 +116,7 @@ export default function AboutPage() {
 
       <section id="contact" className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-16">
         <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Get in Touch</h2>
-        
+
         <div className="grid md:grid-cols-2 gap-12">
           <div>
             <h3 className="font-semibold text-gray-900 mb-4">Contact Information</h3>

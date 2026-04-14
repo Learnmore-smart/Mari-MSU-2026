@@ -1,4 +1,5 @@
 import PetitionCard from '@/components/petitions/PetitionCard'
+import { basePath } from '@/lib/basePath'
 import { getAllPetitions } from '@/lib/data'
 import Link from 'next/link'
 import { Plus, Filter } from 'lucide-react'
@@ -11,7 +12,7 @@ export const metadata = {
 
 export default async function PetitionsPage() {
   const petitions = await getAllPetitions()
-  
+
   const openCount = petitions.filter(p => p.status === 'Open').length
   const reviewCount = petitions.filter(p => p.status === 'Under Review').length
   const approvedCount = petitions.filter(p => p.status === 'Approved' || p.status === 'Implemented').length
@@ -25,7 +26,7 @@ export default async function PetitionsPage() {
             Support causes that matter to you and make your voice heard
           </p>
         </div>
-        <Link href="/petitions/new">
+        <Link href={basePath + '/petitions/new'}>
           <Button className="flex items-center gap-2">
             <Plus className="w-4 h-4" />
             Start a Petition
@@ -82,7 +83,7 @@ export default async function PetitionsPage() {
           </div>
           <h3 className="text-lg font-medium text-gray-900 mb-2">No petitions yet</h3>
           <p className="text-gray-600 mb-4">Be the first to start a petition!</p>
-          <Link href="/petitions/new">
+          <Link href={basePath + '/petitions/new'}>
             <Button>Start a Petition</Button>
           </Link>
         </div>

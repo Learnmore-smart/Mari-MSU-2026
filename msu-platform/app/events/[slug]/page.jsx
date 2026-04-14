@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import { basePath } from '@/lib/basePath'
 import Link from 'next/link'
 import { getEventBySlug, getAllEvents } from '@/lib/data'
 import { formatDate, formatTime } from '@/lib/utils'
@@ -15,7 +16,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const event = await getEventBySlug(params.slug)
   if (!event) return { title: 'Event Not Found' }
-  
+
   return {
     title: `${event.title} - MSU Platform`,
     description: event.description,
@@ -34,8 +35,8 @@ export default async function EventDetailPage({ params }) {
 
   return (
     <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-      <Link 
-        href="/events" 
+      <Link
+        href={basePath + '/events'}
         className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6 mt-8"
       >
         <ArrowLeft className="w-4 h-4" />
@@ -57,12 +58,12 @@ export default async function EventDetailPage({ params }) {
                 </span>
               </div>
             </div>
-            
+
             <div className="p-6">
               <h1 className="text-2xl font-bold text-gray-900 mb-4">
                 {event.title}
               </h1>
-              
+
               <p className="text-gray-600 mb-6">
                 {event.description}
               </p>
@@ -89,8 +90,8 @@ export default async function EventDetailPage({ params }) {
               <div className="border-t border-gray-100 pt-6">
                 <h3 className="font-semibold text-gray-900 mb-2">About this event</h3>
                 <p className="text-gray-600">
-                  Join us for {event.title.toLowerCase()}. This event is organized by {event.organizer} 
-                  and is open to all Marianopolis students. Don't miss this opportunity to connect, 
+                  Join us for {event.title.toLowerCase()}. This event is organized by {event.organizer}
+                  and is open to all Marianopolis students. Don't miss this opportunity to connect,
                   learn, and have fun!
                 </p>
               </div>
@@ -101,7 +102,7 @@ export default async function EventDetailPage({ params }) {
         <div className="lg:col-span-1">
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 sticky top-24">
             <h3 className="font-semibold text-gray-900 mb-4">Event Details</h3>
-            
+
             <div className="space-y-3 mb-6">
               <div className="flex justify-between text-sm">
                 <span className="text-gray-500">Date</span>
@@ -141,8 +142,8 @@ export default async function EventDetailPage({ params }) {
               )}
             </div>
 
-            <Button 
-              className="w-full mb-3" 
+            <Button
+              className="w-full mb-3"
               disabled={isFull}
             >
               {isFull ? 'Event Full' : 'Register Now'}

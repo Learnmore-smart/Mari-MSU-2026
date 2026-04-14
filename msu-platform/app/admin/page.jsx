@@ -1,12 +1,13 @@
 import AdminLayout from '@/components/admin/AdminLayout'
+import { basePath } from '@/lib/basePath'
 import { getAdminStats, getRecentActivity, getAllEvents, getAllPetitions } from '@/lib/data'
 import { KPICard } from '@/components/admin/KPICard'
 import { formatCurrency, formatDate, getStatusColor } from '@/lib/utils'
-import { 
-  Calendar, 
-  Megaphone, 
-  Users, 
-  Handshake, 
+import {
+  Calendar,
+  Megaphone,
+  Users,
+  Handshake,
   DollarSign,
   TrendingUp,
   Clock
@@ -84,7 +85,7 @@ export default async function AdminDashboard() {
         <div className="bg-white rounded-xl shadow-sm border border-gray-100">
           <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
             <h2 className="font-semibold text-gray-900">Recent Events</h2>
-            <Link href="/admin/events" className="text-msu-blue text-sm hover:underline">
+            <Link href={basePath + '/admin/events'} className="text-msu-blue text-sm hover:underline">
               View all
             </Link>
           </div>
@@ -111,7 +112,7 @@ export default async function AdminDashboard() {
         <div className="bg-white rounded-xl shadow-sm border border-gray-100">
           <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
             <h2 className="font-semibold text-gray-900">Recent Petitions</h2>
-            <Link href="/admin/petitions" className="text-msu-blue text-sm hover:underline">
+            <Link href={basePath + '/admin/petitions'} className="text-msu-blue text-sm hover:underline">
               View all
             </Link>
           </div>
@@ -141,19 +142,19 @@ export default async function AdminDashboard() {
           <h2 className="font-semibold text-gray-900">Quick Actions</h2>
         </div>
         <div className="p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Link href="/admin/events" className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md hover:border-gray-200 transition-all duration-200 p-4 text-center">
+          <Link href={basePath + '/admin/events'} className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md hover:border-gray-200 transition-all duration-200 p-4 text-center">
             <Calendar className="w-8 h-8 text-msu-blue mx-auto mb-2" />
             <span className="text-sm font-medium text-gray-900">Add Event</span>
           </Link>
-          <Link href="/admin/petitions" className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md hover:border-gray-200 transition-all duration-200 p-4 text-center">
+          <Link href={basePath + '/admin/petitions'} className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md hover:border-gray-200 transition-all duration-200 p-4 text-center">
             <Megaphone className="w-8 h-8 text-msu-blue mx-auto mb-2" />
             <span className="text-sm font-medium text-gray-900">Review Petitions</span>
           </Link>
-          <Link href="/admin/finance" className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md hover:border-gray-200 transition-all duration-200 p-4 text-center">
+          <Link href={basePath + '/admin/finance'} className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md hover:border-gray-200 transition-all duration-200 p-4 text-center">
             <DollarSign className="w-8 h-8 text-msu-blue mx-auto mb-2" />
             <span className="text-sm font-medium text-gray-900">View Finance</span>
           </Link>
-          <Link href="/admin/sponsors" className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md hover:border-gray-200 transition-all duration-200 p-4 text-center">
+          <Link href={basePath + '/admin/sponsors'} className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md hover:border-gray-200 transition-all duration-200 p-4 text-center">
             <Handshake className="w-8 h-8 text-msu-blue mx-auto mb-2" />
             <span className="text-sm font-medium text-gray-900">Manage Sponsors</span>
           </Link>

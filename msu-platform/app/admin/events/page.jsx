@@ -1,4 +1,5 @@
 import AdminLayout from '@/components/admin/AdminLayout'
+import { basePath } from '@/lib/basePath'
 import { getAllEvents } from '@/lib/data'
 import { formatDate, getStatusColor } from '@/lib/utils'
 import { Button } from '@/components/ui/Button'
@@ -19,7 +20,7 @@ export default async function AdminEventsPage() {
           <h1 className="text-2xl font-bold text-gray-900">Manage Events</h1>
           <p className="text-gray-600">Create, edit, and manage MSU events</p>
         </div>
-        <Link href="/admin/events/new">
+        <Link href={basePath + '/admin/events/new'}>
           <Button className="flex items-center gap-2">
             <Plus className="w-4 h-4" />
             Add Event

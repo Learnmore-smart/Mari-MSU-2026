@@ -1,6 +1,7 @@
+import { basePath } from './lib/basePath.js';
 export const authConfig = {
   pages: {
-    signIn: '/login',
+    signIn: basePath + '/login',
   },
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {

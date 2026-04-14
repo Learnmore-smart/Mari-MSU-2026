@@ -1,4 +1,5 @@
 import { getAllSponsors } from '@/lib/data'
+import { basePath } from '@/lib/basePath'
 import { formatCurrency } from '@/lib/utils'
 import { TierBadge } from '@/components/ui/StatusBadge'
 import { ExternalLink, Handshake } from 'lucide-react'
@@ -10,7 +11,7 @@ export const metadata = {
 
 export default async function SponsorsPage() {
   const sponsors = await getAllSponsors()
-  
+
   const platinumSponsors = sponsors.filter(s => s.tier === 'Platinum')
   const goldSponsors = sponsors.filter(s => s.tier === 'Gold')
   const silverSponsors = sponsors.filter(s => s.tier === 'Silver')
@@ -42,9 +43,9 @@ export default async function SponsorsPage() {
                 <div className="flex-1">
                   <h3 className="font-semibold text-lg text-gray-900">{sponsor.name}</h3>
                   <p className="text-gray-600 text-sm mb-2">{sponsor.description}</p>
-                  <a 
-                    href={sponsor.website} 
-                    target="_blank" 
+                  <a
+                    href={sponsor.website}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="text-msu-blue text-sm hover:underline flex items-center gap-1"
                   >
@@ -73,9 +74,9 @@ export default async function SponsorsPage() {
                 />
                 <h3 className="font-semibold text-gray-900">{sponsor.name}</h3>
                 <p className="text-gray-600 text-sm mb-2">{sponsor.description}</p>
-                <a 
-                  href={sponsor.website} 
-                  target="_blank" 
+                <a
+                  href={sponsor.website}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-msu-blue text-sm hover:underline flex items-center gap-1"
                 >
@@ -133,7 +134,7 @@ export default async function SponsorsPage() {
         <Handshake className="w-12 h-12 mx-auto mb-4" />
         <h2 className="text-2xl font-bold mb-4">Become a Sponsor</h2>
         <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-          Partner with MSU to support student activities and gain visibility with our community 
+          Partner with MSU to support student activities and gain visibility with our community
           of over 2,000 students. We offer various sponsorship tiers to match your goals.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
@@ -152,21 +153,21 @@ export default async function SponsorsPage() {
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
             <h3 className="font-semibold text-gray-900 mb-2">Brand Visibility</h3>
             <p className="text-gray-600 text-sm">
-              Get your brand in front of our student community through event sponsorships, 
+              Get your brand in front of our student community through event sponsorships,
               website presence, and social media mentions.
             </p>
           </div>
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
             <h3 className="font-semibold text-gray-900 mb-2">Recruitment Access</h3>
             <p className="text-gray-600 text-sm">
-              Connect with talented students for internships, part-time positions, 
+              Connect with talented students for internships, part-time positions,
               and career opportunities.
             </p>
           </div>
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
             <h3 className="font-semibold text-gray-900 mb-2">Community Impact</h3>
             <p className="text-gray-600 text-sm">
-              Make a meaningful difference in student life by supporting clubs, 
+              Make a meaningful difference in student life by supporting clubs,
               events, and initiatives.
             </p>
           </div>

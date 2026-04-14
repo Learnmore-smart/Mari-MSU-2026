@@ -1,4 +1,5 @@
 import { getAllClubs } from '@/lib/data'
+import { basePath } from '@/lib/basePath'
 import { Users, Mail, Clock } from 'lucide-react'
 import Link from 'next/link'
 
@@ -9,7 +10,7 @@ export const metadata = {
 
 export default async function ClubsPage() {
   const clubs = await getAllClubs()
-  
+
   const categories = [...new Set(clubs.map(c => c.category))]
 
   return (
@@ -57,7 +58,7 @@ export default async function ClubsPage() {
               <p className="text-gray-600 text-sm mb-4 line-clamp-2">
                 {club.description}
               </p>
-              
+
               <div className="space-y-2 text-sm text-gray-500 mb-4">
                 <div className="flex items-center gap-2">
                   <Users className="w-4 h-4" />
@@ -97,7 +98,7 @@ export default async function ClubsPage() {
       <div className="mt-12 bg-white rounded-xl shadow-sm border border-gray-100 p-8 text-center">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Want to start a new club?</h2>
         <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-          Have an idea for a new student club? We're always looking to support new initiatives 
+          Have an idea for a new student club? We're always looking to support new initiatives
           that enrich student life at Marianopolis.
         </p>
         <Link href="/about#contact" className="inline-flex items-center justify-center rounded-lg font-medium transition-colors bg-msu-blue text-white hover:bg-msu-blue/90 px-4 py-2">
