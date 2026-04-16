@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { basePath } from '@/lib/basePath'
 import { CalendarDays, Megaphone, Users, Handshake } from 'lucide-react'
 import EventCard from '@/components/events/EventCard'
 import PetitionCard from '@/components/petitions/PetitionCard'
@@ -21,10 +22,10 @@ export default async function HomePage() {
               Your hub for events, petitions, clubs, and student life at Marianopolis College.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/events" className="inline-flex items-center justify-center rounded-lg font-medium transition-colors bg-msu-gold text-white hover:bg-msu-gold/90 px-4 py-2">
+              <Link href={basePath + "/events"} className="inline-flex items-center justify-center rounded-lg font-medium transition-colors bg-msu-gold text-white hover:bg-msu-gold/90 px-4 py-2">
                 Explore Events
               </Link>
-              <Link href="/petitions" className="inline-flex items-center justify-center rounded-lg font-medium transition-colors bg-white/10 text-white hover:bg-white/20 px-4 py-2">
+              <Link href={basePath + "/petitions"} className="inline-flex items-center justify-center rounded-lg font-medium transition-colors bg-white/10 text-white hover:bg-white/20 px-4 py-2">
                 View Petitions
               </Link>
             </div>
@@ -59,7 +60,7 @@ export default async function HomePage() {
             <CalendarDays className="w-6 h-6 text-msu-blue" />
             Upcoming Events
           </h2>
-          <Link href="/events" className="text-msu-blue hover:underline text-sm font-medium">
+          <Link href={basePath + "/events"} className="text-msu-blue hover:underline text-sm font-medium">
             View all events →
           </Link>
         </div>
@@ -76,7 +77,7 @@ export default async function HomePage() {
             <Megaphone className="w-6 h-6 text-msu-blue" />
             Active Petitions
           </h2>
-          <Link href="/petitions" className="text-msu-blue hover:underline text-sm font-medium">
+          <Link href={basePath + "/petitions"} className="text-msu-blue hover:underline text-sm font-medium">
             View all petitions →
           </Link>
         </div>
@@ -96,7 +97,7 @@ export default async function HomePage() {
               <p className="text-gray-600 text-sm mb-4">
                 Discover and join student clubs that match your interests. From academic societies to hobby groups.
               </p>
-              <Link href="/clubs" className="text-msu-blue hover:underline text-sm font-medium">
+              <Link href={basePath + "/clubs"} className="text-msu-blue hover:underline text-sm font-medium">
                 Browse clubs →
               </Link>
             </div>

@@ -93,7 +93,7 @@ export default async function AdminEventsPage() {
                   </td>
                   <td className="px-6 py-4 text-right">
                     <div className="flex items-center justify-end gap-2">
-                      <Link href={`/events/${event.slug}`}>
+                      <Link href={basePath + `/events/${event.slug}`}>
                         <button className="p-1.5 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded">
                           <Eye className="w-4 h-4" />
                         </button>

@@ -26,7 +26,7 @@ export default async function PetitionsPage() {
             Support causes that matter to you and make your voice heard
           </p>
         </div>
-        <Link href="/petitions/new">
+        <Link href={basePath + "/petitions/new"}>
           <Button className="flex items-center gap-2">
             <Plus className="w-4 h-4" />
             Start a Petition

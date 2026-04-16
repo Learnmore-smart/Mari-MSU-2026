@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { basePath } from '@/lib/basePath'
 import { Button } from '@/components/ui/Button'
 import { Input, Textarea, Select } from '@/components/ui/Input'
 import { ArrowLeft, Send } from 'lucide-react'
@@ -39,7 +40,7 @@ export default function NewPetitionPage() {
   return (
     <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
       <Link
-        href="/petitions"
+        href={basePath + "/petitions"}
         className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6 mt-8"
       >
         <ArrowLeft className="w-4 h-4" />

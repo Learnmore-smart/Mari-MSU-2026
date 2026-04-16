@@ -7,24 +7,24 @@ import { Menu, X, Calendar, Megaphone, Users, Handshake, Info, Settings } from '
 import { useState } from 'react'
 
 const publicLinks = [
-  { name: 'Events', href: '/events', icon: Calendar },
-  { name: 'Petitions', href: '/petitions', icon: Megaphone },
-  { name: 'Clubs', href: '/clubs', icon: Users },
-  { name: 'Sponsors', href: '/sponsors', icon: Handshake },
-  { name: 'About', href: '/about', icon: Info },
+  { name: 'Events', href: basePath + '/events', icon: Calendar },
+  { name: 'Petitions', href: basePath + '/petitions', icon: Megaphone },
+  { name: 'Clubs', href: basePath + '/clubs', icon: Users },
+  { name: 'Sponsors', href: basePath + '/sponsors', icon: Handshake },
+  { name: 'About', href: basePath + '/about', icon: Info },
 ]
 
 export default function Header() {
   const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const isAdmin = pathname.startsWith('/admin')
+  const isAdmin = pathname.startsWith(basePath + '/admin')
 
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center gap-2">
+            <Link href={basePath + "/"} className="flex items-center gap-2">
               <div className="w-10 h-10 bg-msu-blue rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">M</span>
               </div>
@@ -55,7 +55,7 @@ export default function Header() {
 
           <div className="flex items-center gap-4">
             <Link
-              href="/admin"
+              href={basePath + "/admin"}
               className={`hidden md:flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                 isAdmin
                   ? 'bg-msu-blue/10 text-msu-blue'

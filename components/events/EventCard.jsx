@@ -1,9 +1,10 @@
 import Link from 'next/link'
+import { basePath } from '@/lib/basePath'
 import { formatDate } from '@/lib/utils'
 
 export default function EventCard({ event }) {
   return (
-    <Link href={`/events/${event.slug}`}>
+    <Link href={basePath + `/events/${event.slug}`}>
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md hover:border-gray-200 transition-all duration-200 h-full">
         <div className="aspect-video relative overflow-hidden">
           <img

@@ -1,30 +1,31 @@
 import Link from 'next/link'
+import { basePath } from '@/lib/basePath'
 import { Calendar, Megaphone, Users, Handshake, Info } from 'lucide-react'
 
 const footerLinks = [
   {
     title: 'Quick Links',
     links: [
-      { name: 'Events', href: '/events', icon: Calendar },
-      { name: 'Petitions', href: '/petitions', icon: Megaphone },
-      { name: 'Clubs', href: '/clubs', icon: Users },
-      { name: 'Sponsors', href: '/sponsors', icon: Handshake },
-      { name: 'About', href: '/about', icon: Info },
+      { name: 'Events', href: basePath + '/events', icon: Calendar },
+      { name: 'Petitions', href: basePath + '/petitions', icon: Megaphone },
+      { name: 'Clubs', href: basePath + '/clubs', icon: Users },
+      { name: 'Sponsors', href: basePath + '/sponsors', icon: Handshake },
+      { name: 'About', href: basePath + '/about', icon: Info },
     ],
   },
   {
     title: 'Get Involved',
     links: [
-      { name: 'Start a Petition', href: '/petitions/new' },
-      { name: 'Join a Club', href: '/clubs' },
-      { name: 'Submit Event', href: '/admin/events' },
+      { name: 'Start a Petition', href: basePath + '/petitions/new' },
+      { name: 'Join a Club', href: basePath + '/clubs' },
+      { name: 'Submit Event', href: basePath + '/admin/events' },
     ],
   },
   {
     title: 'Resources',
     links: [
-      { name: 'Admin Portal', href: '/admin' },
-      { name: 'Contact Us', href: '/about#contact' },
+      { name: 'Admin Portal', href: basePath + '/admin' },
+      { name: 'Contact Us', href: basePath + '/about#contact' },
     ],
   },
 ]
@@ -35,7 +36,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
+            <Link href={basePath + "/"} className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 bg-msu-blue rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">M</span>
               </div>
@@ -73,10 +74,10 @@ export default function Footer() {
             © {new Date().getFullYear()} Marianopolis Student Union. All rights reserved.
           </p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <Link href="/about" className="text-gray-400 hover:text-white text-sm">
+            <Link href={basePath + "/about"} className="text-gray-400 hover:text-white text-sm">
               Privacy Policy
             </Link>
-            <Link href="/about" className="text-gray-400 hover:text-white text-sm">
+            <Link href={basePath + "/about"} className="text-gray-400 hover:text-white text-sm">
               Terms of Service
             </Link>
           </div>
