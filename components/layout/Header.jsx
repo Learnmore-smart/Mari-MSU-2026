@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { basePath } from '@/lib/basePath'
 import { usePathname } from 'next/navigation'
 import { Menu, X, Calendar, Megaphone, Users, Handshake, Info, Settings } from 'lucide-react'
 import { useState } from 'react'

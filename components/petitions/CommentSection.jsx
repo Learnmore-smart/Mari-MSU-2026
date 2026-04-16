@@ -4,26 +4,26 @@ import { useState } from 'react'
 import { MessageCircle } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { formatDate } from '@/lib/utils'
-import { createComment } from '@/lib/data'
+import { createCommentAction } from '@/lib/actions'
 
 export default function CommentSection({ comments, petitionId }) {
   const [newComment, setNewComment] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!newComment.trim()) return
-    
+
     setIsSubmitting(true)
     try {
-      await createComment({
+      await createCommentAction({
         petition_id: petitionId,
         author: 'guest',
         author_id: 'guest',
         content: newComment.trim()
       })
-      
+
       setNewComment('')
       setSubmitted(true)
       setTimeout(() => {
@@ -36,14 +36,14 @@ export default function CommentSection({ comments, petitionId }) {
       setIsSubmitting(false)
     }
   }
-  
+
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
       <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
         <MessageCircle className="w-5 h-5" />
         Comments ({comments?.length || 0})
       </h3>
-      
+
       <div className="mb-6">
         <form onSubmit={handleSubmit}>
           <textarea
@@ -65,7 +65,7 @@ export default function CommentSection({ comments, petitionId }) {
           </div>
         )}
       </div>
-      
+
       <div className="space-y-4">
         {comments?.map((comment) => (
           <div key={comment.id} className="border-l-2 border-msu-blue pl-4">
@@ -76,7 +76,7 @@ export default function CommentSection({ comments, petitionId }) {
             <p className="text-gray-600 text-sm">{comment.content}</p>
           </div>
         ))}
-        
+
         {(!comments || comments.length === 0) && (
           <p className="text-gray-500 text-sm text-center py-4">
             No comments yet. Be the first to comment!

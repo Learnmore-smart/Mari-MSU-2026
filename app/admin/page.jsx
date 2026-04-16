@@ -12,6 +12,7 @@ import {
   Clock
 } from 'lucide-react'
 import Link from 'next/link'
+import { basePath } from '@/lib/basePath'
 
 export const metadata = {
   title: 'Admin Dashboard - MSU Platform',
