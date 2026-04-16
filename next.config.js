@@ -1,13 +1,19 @@
 /** @type {import('next').NextConfig} */
 
-const basePath = '/mari-msu-2026';
+const basePath = "/mari-msu-2026";
 const nextConfig = {
-  basePath,
+  basePath: "/mari-msu-2026",
+  assetPrefix: "/mari-msu-2026",
+
+  env: {
+    NEXTAUTH_URL:
+      process.env.NEXTAUTH_URL || "http://localhost:3000/mari-msu-2026",
+  },
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: '**',
+        protocol: "https",
+        hostname: "**",
       },
     ],
   },
