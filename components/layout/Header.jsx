@@ -54,6 +54,20 @@ export default function Header() {
           </div>
 
           <div className="flex items-center gap-4">
+            <a
+              href="https://www.rateministere.com"
+              className="hidden md:flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100 transition-colors"
+            >
+              Home
+            </a>
+            <a
+              href="https://github.com/Learnmore-smart/Mari-MSU-2026"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100 transition-colors"
+            >
+              GitHub
+            </a>
             <Link
               href={basePath + "/admin"}
               className={`hidden md:flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
@@ -97,6 +111,22 @@ export default function Header() {
                   </Link>
                 )
               })}
+              <a
+                href="https://www.rateministere.com"
+                className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </a>
+              <a
+                href="https://github.com/Learnmore-smart/Mari-MSU-2026"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                GitHub
+              </a>
               <Link
                 href={basePath + '/admin'}
                 className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium ${
